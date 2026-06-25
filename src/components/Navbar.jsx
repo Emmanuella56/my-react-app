@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Lordgate_Logo from "../assets/Lordgate Logo.png";
-
+import { Link } from "react-router-dom"
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed flex justify-between items-center bg-white hover:transition-all duration-400  px-6 md:px-8 py-1 m absolute left-0 top-0 w-full z-50 shadow-md">
+      <nav className="fixed flex justify-between items-center bg-white hover:transition-all duration-400  px-6 md:px-8   absolute left-0 top-0 w-full z-50 shadow-md">
         <div className="flex items-center gap-1  md:gap-4">
           <div className="w-10 md:w-18">
             <img src={Lordgate_Logo} alt="Lordgate Logo" className="w-full" />
@@ -54,21 +54,35 @@ function Navbar() {
         </div>
 
         <ul className="hidden md:flex justify-around md:text-lg gap-10 p-4">
+          <Link to="/">
           <li className="cursor-pointer hover:text-green-800 transition-colors duration-300">
             Home
           </li>
+          </Link>
+          
+          <Link to="/about">
           <li className="cursor-pointer hover:text-green-800 transition-colors duration-300">
             About
           </li>
+          </Link>
+          
+          <Link>
           <li className="cursor-pointer hover:text-green-800 transition-colors duration-300">
             Services
           </li>
+          </Link>
+
+          <Link>
           <li className="cursor-pointer hover:text-green-800 transition-colors duration-300">
             Projects
           </li>
+          </Link>
+
+          <Link>
           <li className="cursor-pointer hover:text-green-800 transition-colors duration-300">
             Contact
           </li>
+          </Link>
         </ul>
 
         <button
@@ -80,21 +94,40 @@ function Navbar() {
       </nav>
 
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <ul className="md:hidden flex flex-col gap-4 bg-white shadow-lg pt-20 p-4">
-            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-300 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
+        <div className="md:hidden fixed top-0 left-0 right-0 z-40 pt-28  bg-white shadow-lg pb-10 ">
+          <ul className="flex flex-col gap-4 shadow-lg px-6">
+            
+            <Link to='/'>
+            <li className="cursor-pointer p-4  border-b border-l border-r  border-gray-400 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
               Home
             </li>
-            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-300 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
+            </Link>
+
+            <Link to='/about'>
+            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-400 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
               About
             </li>
-            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-300 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
+            </Link>
+
+            <Link>
+            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-400 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
               Services
             </li>
-            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-300 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
+            </Link>
+
+            <Link>
+            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-400 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
               Projects
             </li>
-            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-300 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">Contact</li>
+
+            </Link>
+            
+            <Link>
+            <li className="cursor-pointer p-4 border-b border-l border-r  border-gray-400 shadow-md  hover:border-lime-500  hover:text-green-900 hover:scale-102 transition-all duration-300">
+              Contact
+            </li>
+            </Link>
+
           </ul>
         </div>
       )}
